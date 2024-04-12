@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NewCabInvoice")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+398ff57b1b9289c46c21bc67801046179260b47c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+882d62a463ebee2ab5735f50bfcd4ab4ff118e87")]
 [assembly: System.Reflection.AssemblyProductAttribute("NewCabInvoice")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NewCabInvoice")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

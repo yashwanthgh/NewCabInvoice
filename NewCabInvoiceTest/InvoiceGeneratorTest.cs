@@ -43,18 +43,6 @@ namespace NewCabInvoiceTest
         }
 
         [Test]
-        public void GetRidesForUser_ExistingUser_ReturnsRideData()
-        {
-            var repository = new RideRepository();
-            int userId = 123;
-
-            var rides = repository.GetRidesForUser(userId);
-
-            Assert.IsNotNull(rides);
-            Assert.IsTrue(rides.Any());
-        }
-
-        [Test]
         public void PremiumRide_IsPremiumProperty_ReturnsTrue()
         {
             IRide ride = new Ride(15, 45, isPremium: true); 

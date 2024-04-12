@@ -12,16 +12,15 @@ namespace NewCabInvoice
     }
     public class RideRepository : IRideRepository
     {
-        private  Dictionary<int, List<IRide>> UserRides;
+        private readonly Dictionary<int, List<IRide>> UserRides = [];
 
         public IEnumerable<IRide> GetRidesForUser(int userId)
         {
-            if (UserRides.TryGetValue(userId, out List<IRide>? value))
+            if (UserRides.ContainsKey(userId))
             {
-                return value;
+                return UserRides[userId];
             }
-
-            return [];
+            return Enumerable.Empty<IRide>();
         }
     }
 }
