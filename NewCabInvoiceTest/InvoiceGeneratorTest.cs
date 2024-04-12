@@ -41,5 +41,17 @@ namespace NewCabInvoiceTest
             Assert.That(actual.TotalFare, Is.EqualTo(expectedTotalFare));
             Assert.That(actual.AverageFarePerRide, Is.EqualTo(expectedAverage));    
         }
+
+        [Test]
+        public void GetRidesForUser_ExistingUser_ReturnsRideData()
+        {
+            var repository = new RideRepository();
+            int userId = 123;
+
+            var rides = repository.GetRidesForUser(userId);
+
+            Assert.IsNotNull(rides);
+            Assert.IsTrue(rides.Any());
+        }
     }
 }
