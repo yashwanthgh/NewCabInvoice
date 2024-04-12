@@ -11,6 +11,7 @@ namespace NewCabInvoice
     {
         double Distance { get; }
         double Duration { get; }
+        bool IsPremium { get; }
     }
 
     // Interface to enforce the method declared inside it on the class which implements
@@ -30,23 +31,20 @@ namespace NewCabInvoice
     }
 
     // Takes time and distance and assigne it to properties within IRide intreface => we will call this
-    public class Ride(double distance, double duration) : IRide
+    public class Ride(double distance, double duration, bool isPremium) : IRide
     {
         public double Distance { get; } = distance;
         public double Duration { get; } = duration;
+        public bool IsPremium { get; } = isPremium;
     }
     public class InvoiceGenerator : IInvoiceGenerator
     {
-        private const double CostPerKm = 10.0;
-        private const double CostPerMinute = 1.0;
-        private const double MinimumFare = 5.0;
-
-        public double CalculateFare(IRide ride) //For single ride 
+        public double CalculateFare(IRide ride)  // Fare calculation based on whether the ride is premium or not
         {
-            double distanceCost = ride.Distance * CostPerKm;
-            double timeCost = ride.Duration * CostPerMinute;
-            double totalFare = Math.Max(distanceCost + timeCost, MinimumFare);
-            return totalFare;
+            double costPerKm = ride.IsPremium ? 15 : 10;
+            double costPerMinute = ride.IsPremium ? 2 : 1;
+            double fare = ride.Distance * costPerKm + ride.Duration * costPerMinute;
+            return Math.Max(fare, ride.IsPremium ? 20 : 5);
         }
 
         public double CalculateTotalFare(IEnumerable<IRide> rides) // For multiple rides

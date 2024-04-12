@@ -16,17 +16,6 @@ namespace NewCabInvoice
 
         public IEnumerable<IRide> GetRidesForUser(int userId)
         {
-            UserRides = new Dictionary<int, List<IRide>>
-            {
-                {
-                    123,
-                    new List<IRide>
-        {
-            new Ride(10, 30), 
-            new Ride(15, 45)  
-        }
-                }
-            };
             if (UserRides.TryGetValue(userId, out List<IRide>? value))
             {
                 return value;
