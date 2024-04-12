@@ -16,7 +16,8 @@ namespace NewCabInvoice
     // Interface to enforce the method declared inside it on the class which implements
     public interface IInvoiceGenerator
     {
-        double CalculateFare(IRide ride);
+        double CalculateFare(IRide ride); // For one ride
+        double CalculateTotalFare(IEnumerable<IRide> rides); // For multiple ride
     }
 
     // Takes time and distance and assigne it to properties within IRide intreface => we will call this
@@ -31,11 +32,21 @@ namespace NewCabInvoice
         private const double CostPerMinute = 1.0;
         private const double MinimumFare = 5.0;
 
-        public double CalculateFare(IRide ride) // Pass the ride value here 
+        public double CalculateFare(IRide ride) //For single ride 
         {
             double distanceCost = ride.Distance * CostPerKm;
             double timeCost = ride.Duration * CostPerMinute;
             double totalFare = Math.Max(distanceCost + timeCost, MinimumFare);
+            return totalFare;
+        }
+
+        public double CalculateTotalFare(IEnumerable<IRide> rides) // For multiple rides
+        {
+            double totalFare = 0;
+            foreach (var ride in rides)
+            {
+                totalFare += CalculateFare(ride);
+            }
             return totalFare;
         }
 
