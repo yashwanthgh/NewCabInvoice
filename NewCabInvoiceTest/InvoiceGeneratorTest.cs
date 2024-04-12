@@ -1,17 +1,17 @@
+using NewCabInvoice;
 namespace NewCabInvoiceTest
 {
-
+    [TestFixture]
     public class InvoiceGeneratorTest
     {
-        [SetUp]
-        public void Setup()
-        {
-        }
-
         [Test]
-        public void Test1()
+        public void FareCalculator_ReturnTheFareValue()
         {
-            Assert.Pass();
+            double expected = 130;
+            IInvoiceGenerator generator = new InvoiceGenerator();
+            IRide ride = new Ride(10, 30);
+            double acutal = generator.CalculateFare(ride);
+            Assert.That(acutal, Is.EqualTo(expected));
         }
     }
 }

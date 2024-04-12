@@ -12,3 +12,4 @@ C:\Code\Collaborate\NewCabInvoice\NewCabInvoice\obj\Debug\net8.0\refint\NewCabIn
 C:\Code\Collaborate\NewCabInvoice\NewCabInvoice\obj\Debug\net8.0\NewCabInvoice.pdb
 C:\Code\Collaborate\NewCabInvoice\NewCabInvoice\obj\Debug\net8.0\NewCabInvoice.genruntimeconfig.cache
 C:\Code\Collaborate\NewCabInvoice\NewCabInvoice\obj\Debug\net8.0\ref\NewCabInvoice.dll
+C:\Code\Collaborate\NewCabInvoice\NewCabInvoice\obj\Debug\net8.0\NewCabInvoice.sourcelink.json
